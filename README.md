@@ -8,6 +8,9 @@ static_configs:
 
 Enter the number and then target IRL's for monitors
 
+# Run Setup
+bash ./installer.sh
+
 # Installed Packages
 The script will install, Configure & Start the Prometheus, Node Exporter & Blackbox Exporter with linux system services enabled.
 
