@@ -1,5 +1,5 @@
 # Promethues-automation
-This repository contains bash script for Easy Install onto Ubuntu environment 16,18 &amp; 20.04 
+This repository contains bash script for Easy Install onto Ubuntu environment 16,18 &amp; 20.04 and Ubuntu 22.04
 
 # Monitor setup
 The program will input number of Monitors you need to setup on Prometheus as config below
