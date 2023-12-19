@@ -143,7 +143,7 @@ read monitor_count
 	sleep 1
 	truncate -s 0 monitors.txt
 	sleep 1
-	cp finalprom-Backup finalprom
+	# cp finalprom-Backup finalprom
 	echo -e "\n\n"
 	echo "DONE"
 	echo -e "\n"
