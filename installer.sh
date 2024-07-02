@@ -1,5 +1,8 @@
 #!/bin/bash
 
+prometheus_version="2.53.0"
+blackbox_exporter_version="0.25.0"
+node_exporter_version="1.8.1"
 monitor_count=0
 count=1
 Monitor_Final=""
@@ -54,42 +57,43 @@ read monitor_count
 	sleep 3
 	echo -e "\n"
 
-	wget https://github.com/prometheus/prometheus/releases/download/v2.8.0/prometheus-2.8.0.linux-amd64.tar.gz
+	wget "https://github.com/prometheus/prometheus/releases/download/v${prometheus_version}/prometheus-${prometheus_version}.linux-amd64.tar.gz"
+	
+	tar -xf prometheus-${prometheus_version}.linux-amd64.tar.gz
 
-	tar -xf prometheus-2.8.0.linux-amd64.tar.gz
+	cp prometheus-${prometheus_version}.linux-amd64/prometheus /usr/local/bin/
 
-	cp prometheus-2.8.0.linux-amd64/prometheus /usr/local/bin/
-
-	cp prometheus-2.8.0.linux-amd64/promtool /usr/local/bin/
+	cp prometheus-${prometheus_version}.linux-amd64/promtool /usr/local/bin/
 
 	chown prometheus:prometheus /usr/local/bin/prometheus
 
 	chown prometheus:prometheus /usr/local/bin/promtool
 
-	cp -r prometheus-2.8.0.linux-amd64/consoles /etc/prometheus/
+	cp -r prometheus-${prometheus_version}.linux-amd64/consoles /etc/prometheus/
 
-	cp -r prometheus-2.8.0.linux-amd64/console_libraries /etc/prometheus/
+	cp -r prometheus-${prometheus_version}.linux-amd64/console_libraries /etc/prometheus/
 
 	chown -R prometheus:prometheus /etc/prometheus/consoles
 
 	chown -R prometheus:prometheus /etc/prometheus/console_libraries
 
-	rm -rf prometheus-2.8.0.linux-amd64*
+	rm -rf prometheus-${prometheus_version}.linux-amd64*
 
 	echo -e "\n\n"
 	echo "Installing Node Exporter in 3 seconds"
 	sleep 3
 	echo -e "\n"
 
-	wget https://github.com/prometheus/node_exporter/releases/download/v0.17.0/node_exporter-0.17.0.linux-amd64.tar.gz
+#	wget https://github.com/prometheus/node_exporter/releases/download/v1.8.1/node_exporter-1.8.1.linux-amd64.tar.gz
+	wget https://github.com/prometheus/node_exporter/releases/download/v${node_exporter_version}/node_exporter-${node_exporter_version}.linux-amd64.tar.gz 
 
-	tar -xf node_exporter-0.17.0.linux-amd64.tar.gz
+	tar -xf node_exporter-${node_exporter_version}.linux-amd64.tar.gz
 
-	cp node_exporter-0.17.0.linux-amd64/node_exporter /usr/local/bin
+	cp node_exporter-${node_exporter_version}.linux-amd64/node_exporter /usr/local/bin
 
 	chown node_exporter:node_exporter /usr/local/bin/node_exporter
 
-	rm -rf node_exporter-0.17.0.linux-amd64*
+	rm -rf node_exporter-${node_exporter_version}.linux-amd64*
 
 	cp prometheus.service /etc/systemd/system/prometheus.service
 
@@ -100,15 +104,15 @@ read monitor_count
 	sleep 3
 	echo -e "\n"
 	
-	wget https://github.com/prometheus/blackbox_exporter/releases/download/v0.14.0/blackbox_exporter-0.14.0.linux-amd64.tar.gz
+#	wget https://github.com/prometheus/blackbox_exporter/releases/download/v0.25.0/blackbox_exporter-0.25.0.linux-amd64.tar.gz
+	wget https://github.com/prometheus/blackbox_exporter/releases/download/v${blackbox_exporter_version}/blackbox_exporter-${blackbox_exporter_version}.linux-amd64.tar.gz
+	tar -xvf blackbox_exporter-${blackbox_exporter_version}.linux-amd64.tar.gz
 	
-	tar -xvf blackbox_exporter-0.14.0.linux-amd64.tar.gz
-	
-	cp blackbox_exporter-0.14.0.linux-amd64/blackbox_exporter /usr/local/bin/blackbox_exporter
+	cp blackbox_exporter-${blackbox_exporter_version}.linux-amd64/blackbox_exporter /usr/local/bin/blackbox_exporter
 	
 	chown blackbox_exporter:blackbox_exporter /usr/local/bin/blackbox_exporter
 	
-	rm -rf blackbox_exporter-0.14.0.linux-amd64*
+	rm -rf blackbox_exporter-${blackbox_exporter_version}.linux-amd64*
 	
 	mkdir /etc/blackbox_exporter
 	
@@ -150,3 +154,4 @@ read monitor_count
   else
      echo "Enter value is not an integer or not defined"
   fi
+
