@@ -1,15 +1,25 @@
 # Promethues-automation
-This repository contains bash script for Easy Install onto Ubuntu environment 16,18 &amp; 20.04 and Ubuntu 22.04
+This repository contains bash script for Easy Install onto Ubuntu OS below
+
+
+Ubuntu 16 | Ubuntu 18 | Ubuntu 18 | Ubuntu 20 | Ubuntu 22 | Ubuntu 24
+:------------ | :-------------| :-------------| :-------------| :-------------| :-------------
+Tested | ✅	 |  ✅	 | ✅	 | ✅	| ❌
 
 # Monitor setup
 The program will input number of Monitors you need to setup on Prometheus as config below
+
+```
 static_configs:
-      - targets: 
+      - targets:
+```
 
 Enter the number and then target IRL's for monitors
 
 # Run Setup
-bash ./installer.sh
+```
+./installer.sh
+```
 
 # Installed Packages
 The script will install, Configure & Start the Prometheus, Node Exporter & Blackbox Exporter with linux system services enabled.
