@@ -31,7 +31,7 @@ read monitor_count
 	   : 
 	   echo -e "$prefix$i" >> tempData/monitors.txt
 	done
-	sed -i '18r tempData/monitors.txt' conf/prometheus.yml
+	sed -i '20r tempData/monitors.txt' conf/prometheus.yml
 	echo -e "\n\n"
 	echo "Setting Prometheus Configuration"
 	sleep 3
