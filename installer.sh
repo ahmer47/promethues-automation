@@ -138,11 +138,11 @@ read monitor_count
 	
 	mkdir /etc/blackbox_exporter
 	
-	cp services/blackbox.yml /etc/blackbox_exporter/blackbox.yml
+	cp conf/blackbox.yml /etc/blackbox_exporter/blackbox.yml
 	
 	chown blackbox_exporter:blackbox_exporter /etc/blackbox_exporter/blackbox.yml
 	
-	cp blackbox_exporter.service /etc/systemd/system/blackbox_exporter.service
+	cp services/blackbox_exporter.service /etc/systemd/system/blackbox_exporter.service
 	cp conf/prometheus.yml  /etc/prometheus/prometheus.yml
 
 	echo -e "\n\n"
