@@ -124,23 +124,23 @@ read monitor_count
 	
 	systemctl daemon-reload
 	sleep 2
-	systemctl start blackbox_exporter
-	sleep 2
-	systemctl enable blackbox_exporter
-	sleep 2
+	#systemctl start blackbox_exporter
+	#sleep 2
+	#systemctl enable blackbox_exporter
+	#sleep 2
 	
 	cp finalprom  /etc/prometheus/prometheus.yml
 
 	sleep 2
 	systemctl start node_exporter
 	sleep 2
-	systemctl start prometheus
+	#systemctl start prometheus
 	sleep 2
 	systemctl enable prometheus
-	sleep 2
+	#sleep 2
 	systemctl enable node_exporter
-	sleep 2
-	systemctl restart prometheus
+	#sleep 2
+	#systemctl restart prometheus
 	sleep 2
 	echo -e "\n\n"
 	echo "Finishing installation in few moments"
